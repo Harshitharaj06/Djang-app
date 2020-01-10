@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTER</title>
+</head>
+<body>
+<h1>REGISTRATION PAGE</h1>
+<form method="post" action="{% url 'register' %}">
+{% csrf_token %}
+
+{% if form.errors %}
+<p>Error in form!</p>
+{% endif %}
+
+{% comment %} {{form}} {% endcomment %}
+{{ form.as_p }}
+<input type="submit" value="REGISTER">
+{% comment %} <input type="hidden" name="next" value={{next}}> {% endcomment %}
+</form>
+</body>
+</html>

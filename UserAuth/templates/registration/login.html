@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+</head>
+<body>
+{% if form.errors %}
+<p>User Doesn't exit or username/password didnot match</p>
+{% endif %}
+{% if next %}
+<p> Can't access</p>
+{% endif %} 
+
+ <form method="post" action="{% url 'login' %}"> 
+{% csrf_token %}
+{% comment %} Username:{{form.username}}
+Password:{{form.password}} {% endcomment %}
+{{ form.as_p }}
+{% comment %} {% if form.error %}
+<p>Don't have an accoount? Create one <a href="/register">here</a></p>
+{% endif %} {% endcomment %}
+<input type="submit" value="LOGIN">
+<input type="hidden" name="next" value={{next}}>
+</form>
+</body>
+</html>
